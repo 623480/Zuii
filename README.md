@@ -1,10 +1,6 @@
 
-
-
-
-
-
-
+# React Element
+- React Element is nothing but at end JS object
 
 
 
@@ -15,6 +11,8 @@
 - which makes code readable and clean
 - JSX is not JS understandable language
 - so Babel will take care of transpiling of JSX to JS understandable language..
+- JSX will filter the malicious data !...
+
 
 
 
