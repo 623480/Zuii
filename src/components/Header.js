@@ -33,7 +33,7 @@ const Header = () => {
             </Link>
           </div>
           <div className="mx-4 text-base font-medium hover:text-blue-500">
-            <Link to="/contact">Cart</Link>
+            <Link to="/contact">Contact</Link>
           </div>
           <div>
             <button
@@ -54,19 +54,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// <ul className="flex justify-evenly">
-// <li className="mx-2">onlineStatus:{Status ? "🟢" : "🔴"}</li>
-// <li>
-//   {" "}
-//   <Link to="/about">About us</Link>
-// </li>
-// <li className="mx-2">
-//   <Link to="/">Home</Link>
-// </li>
-// <li className="mx-2 mr-3 mt-1">
-//   <Link to="/cart">
-//     <TiShoppingCart size={20} color="green" />
-//     {cartItems.length}
-//   </Link>
-// </li>

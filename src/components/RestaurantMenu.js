@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useParams } from 'react-router-dom';
-import { Shimmer } from './Shimmer';
+import RestaurantMenuShimmer  from './RestaurantMenuShimmer';
 import { useRestaurantMenu } from '../Hooks/useRestaurantMenu';
 import RestaurantCategory from './RestaurantCategory';
 const RestaurantMenu = () => {
@@ -11,7 +11,7 @@ const RestaurantMenu = () => {
 
   const restaurantInfo = useRestaurantMenu(resId);
 
-  if (restaurantInfo === null) return <Shimmer />;
+  if (restaurantInfo === null) return <RestaurantMenuShimmer />;
 
   const categories =
     restaurantInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -21,8 +21,9 @@ const RestaurantMenu = () => {
     );
 
   return (
-    <div className='text-center min-h-lvh'>
-      <h1>{restaurantInfo?.cards[2]?.card?.card?.info?.name}</h1>
+    <div className='text-center min-h-lvh my-4'>
+      <div className='my-8 py-2'>
+      <h1 className='text-lg font-bold'>{restaurantInfo?.cards[2]?.card?.card?.info?.name}</h1></div>
       <div>
         {categories.map((category, index) => (
           <RestaurantCategory
