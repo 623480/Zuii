@@ -9,6 +9,7 @@ export const useRestaurantsList = () => {
   }, []);
 
   const fetchRestuarants = async () => {
+    console.log(API_URL)
     const response = await fetch(API_URL);
     const responseData = await response.json();
 

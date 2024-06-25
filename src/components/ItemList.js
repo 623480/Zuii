@@ -34,13 +34,13 @@ export const ItemList = ({ items }) => {
           </div>
           <div className="w-3/12 pl-4 pr-4 pt-2 pb-5">
             <button
-              className="text-white bg-black"
+              className="text-white bg-black rounded-md mx-2"
               onClick={() => handleAddItem(item)}
             >
               add
             </button>
             <button
-              className="text-white bg-black"
+              className="text-white bg-black rounded-md mx-2"
               onClick={() => handleRemoveItem(item)}
             >
               remove
