@@ -28,25 +28,22 @@ const Header = () => {
           </div>
           <div>
             <Link to="/cart" className="flex mx-4">
-              <TiShoppingCart size={26} color="green" />
+              <TiShoppingCart size={26} className="hover:text-blue-500" />
               <p className="text-base font-medium">{cartItems.length}</p>
             </Link>
           </div>
           <div className="mx-4 text-base font-medium hover:text-blue-500">
             <Link to="/contact">Contact</Link>
           </div>
-          <div>
-            <button
-              className="mx-4 text-base font-medium hover:text-blue-500"
-              onClick={() => {
-                btnName === "login"
-                  ? setbtnName("Logout")
-                  : setbtnName("Login");
-              }}
-            >
-              {btnName}
-            </button>
-          </div>
+
+          <button
+            className="mx-4 text-base font-medium hover:text-blue-500"
+            onClick={() => {
+              btnName === "Login" ? setbtnName("Logout") : setbtnName("Login");
+            }}
+          >
+            {btnName}
+          </button>
         </div>
       </div>
     </div>
