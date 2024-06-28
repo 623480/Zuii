@@ -11,8 +11,10 @@ export const ItemList = ({ items }) => {
   const handleRemoveItem = (item) => {
     dispatch(removeItem(item));
   };
+
+  
   return (
-    <div>
+    <div className="">
       {items.map((item) => (
         <div
           key={item.card.info.id}
@@ -33,18 +35,6 @@ export const ItemList = ({ items }) => {
             </p>
           </div>
           <div className="w-3/12 pl-4 pr-4 pt-2 pb-5">
-            <button
-              className="text-white bg-black rounded-md mx-2"
-              onClick={() => handleAddItem(item)}
-            >
-              add
-            </button>
-            <button
-              className="text-white bg-black rounded-md mx-2"
-              onClick={() => handleRemoveItem(item)}
-            >
-              remove
-            </button>
             {item.card.info.imageId === undefined ? (
               <div className="w-full rounded-md bg-slate-50"></div>
             ) : (
@@ -54,6 +44,12 @@ export const ItemList = ({ items }) => {
                 alt={item.card.info.id}
               />
             )}
+            <button
+              className="text-orange-500 text-lg font-bold border-b-2 border-orange-800 bg-white rounded-md px-2 "
+              onClick={() => handleAddItem(item)}
+            >
+              Add
+            </button>
           </div>
         </div>
       ))}

@@ -6,7 +6,7 @@ import { TiShoppingCart } from "react-icons/ti";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((store) => store.cart.totalItems);
   const [btnName, setbtnName] = useState("Login");
   const Status = useOnlineStatus();
   return (
@@ -29,7 +29,7 @@ const Header = () => {
           <div className="">
             <Link to="/cart" className="flex w-6/12 m-auto sm:flex sm:mx-4">
               <TiShoppingCart size={26} className="hover:text-blue-500" />
-              <p className="text-base font-medium">{cartItems.length}</p>
+              <p className="text-base font-medium">{cartItems}</p>
             </Link>
           </div>
           <div className="mx-4 text-base font-medium hover:text-blue-500">
