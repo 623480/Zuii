@@ -1,13 +1,13 @@
-import RestaurantCard, { withPromotedLabel } from './RestaurantCard';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { Shimmer } from './Shimmer';
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Shimmer } from "./Shimmer";
 
-import { useOnlineStatus } from '../Hooks/useOnlineStatus';
-import { useRestaurantsList } from '../Hooks/useRestaurantsList';
+import { useOnlineStatus } from "../Hooks/useOnlineStatus";
+import { useRestaurantsList } from "../Hooks/useRestaurantsList";
 
 const Body = () => {
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
   const [listofRestaurants, filteredRestaurant, setFilteredRestaurant] =
     useRestaurantsList();
 
@@ -24,51 +24,35 @@ const Body = () => {
   return listofRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className='flex flex-col justify-center h-lvh'>
-      <div className='mt-[15] flex flex-row justify-center'>
-        <div>
-          <button
-            className='border bg-slate-300'
-            onClick={() => {
-              setFilteredRestaurant(
-                listofRestaurants.filter(
-                  (restaurant) => restaurant.info.avgRating > 4.1
-                )
-              );
-            }}>
-            Top Rated
-          </button>
-        </div>
-        <div className='flex flex-row justify-center'>
-          <div>
-            <input
-              className='border border-black rounded-md'
-              type='text'
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}></input>
-          </div>
-          <div>
-            <button
-              className='search-icon'
-              onClick={() => {
-                const filteredRestaurant = listofRestaurants.filter(
-                  (restaurant) =>
-                    restaurant?.info?.name
-                      .toLowerCase()
-                      .includes(searchText.toLowerCase())
-                );
-                setFilteredRestaurant(filteredRestaurant);
-              }}>
-              se
-            </button>
-          </div>
-        </div>
+    <div className="mx-6 flex flex-col py-6 min-h-lvh">
+      <div className="flex flex-row justify-center">
+        <input
+          className="border-2 px-3  border-black rounded-2xl"
+          type="text"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        ></input>
+
+        <button
+          className="text-white bg-blue-400 rounded-md mx-2 px-2 border-blue-700 text-base font-medium py-1"
+          onClick={() => {
+            const filteredRestaurant = listofRestaurants.filter((restaurant) =>
+              restaurant?.info?.name
+                .toLowerCase()
+                .includes(searchText.toLowerCase())
+            );
+            setFilteredRestaurant(filteredRestaurant);
+          }}
+        >
+          Search
+        </button>
       </div>
-      <div className='flex flex-wrap'>
+      <div className="flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
           <Link
-            to={'/restaurants/' + restaurant.info.id}
-            key={restaurant.info.id}>
+            to={"/restaurants/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
             {restaurant.info.isOpen === true ? (
               <RestaurantCardWithLabel resData={restaurant} />
             ) : (

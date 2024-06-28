@@ -15,8 +15,8 @@ const Header = () => {
         <img className="w-24 rounded-full" src={ZUIII_LOGO} alt="Logo" />
       </div>
 
-      <div className="mr-16 py-8 ">
-        <div className="flex">
+      <div className="mr-16 py-8">
+        <div className="flex flex-col sm:flex sm:flex-row">
           <div className="mx-4 text-base font-medium">
             <p>Status{Status ? "🟢" : "🔴"}</p>
           </div>
@@ -26,8 +26,8 @@ const Header = () => {
           <div className="mx-4 text-base font-medium hover:text-blue-500">
             <Link to="/about">About</Link>
           </div>
-          <div>
-            <Link to="/cart" className="flex mx-4">
+          <div className="">
+            <Link to="/cart" className="flex w-6/12 m-auto sm:flex sm:mx-4">
               <TiShoppingCart size={26} className="hover:text-blue-500" />
               <p className="text-base font-medium">{cartItems.length}</p>
             </Link>
@@ -35,15 +35,18 @@ const Header = () => {
           <div className="mx-4 text-base font-medium hover:text-blue-500">
             <Link to="/contact">Contact</Link>
           </div>
-
-          <button
-            className="mx-4 text-base font-medium hover:text-blue-500"
-            onClick={() => {
-              btnName === "Login" ? setbtnName("Logout") : setbtnName("Login");
-            }}
-          >
-            {btnName}
-          </button>
+          <div>
+            <button
+              className="mx-4 text-base font-medium hover:text-blue-500"
+              onClick={() => {
+                btnName === "Login"
+                  ? setbtnName("Logout")
+                  : setbtnName("Login");
+              }}
+            >
+              {btnName}
+            </button>
+          </div>
         </div>
       </div>
     </div>
