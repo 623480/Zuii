@@ -15,7 +15,7 @@ const RestaurantCategory = ({ category, showItems, setShowIndex }) => {
         </span>
         <span>{showItems ? '⬆' : '⬇'}</span>
       </div>
-      {showItems && <ItemList items={category.card.card.itemCards} />}
+      {showItems && <ItemList  categoryItems={category.card.card.itemCards} />}
     </div>
   );
 };
