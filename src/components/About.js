@@ -8,9 +8,8 @@ const About = () => {
         <img src={ZUIII_LOGO} alt="logo" />
         <p className="text-sm font-medium font-serif">
           The ZUIII is inspired by childhood nostalgia. It was the word that
-          excited children the most when they sat on bikes with their dad,
-          whether they were in motion or at rest. They felt like they were
-          driving and would mimic the sound, saying "ZUIII... ZUIII..."
+          excited children the most when they sat on bikes. They felt like they
+          were driving and would mimic the sound, saying "ZUIII... ZUIII..."
         </p>
       </div>
     </div>
