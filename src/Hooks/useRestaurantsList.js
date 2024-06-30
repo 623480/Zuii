@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { API_URL } from '../utils/constant';
+import { useState, useEffect } from "react";
+import { SWIGGY_API_URL } from "../utils/constant";
 
 export const useRestaurantsList = () => {
   const [listofRestaurants, setListofRestaurant] = useState([]);
@@ -9,7 +9,7 @@ export const useRestaurantsList = () => {
   }, []);
 
   const fetchRestuarants = async () => {
-    const response = await fetch(API_URL);
+    const response = await fetch(SWIGGY_API_URL);
     const responseData = await response.json();
 
     setFilteredRestaurant(
@@ -21,5 +21,5 @@ export const useRestaurantsList = () => {
         ?.restaurants
     );
   };
-  return [listofRestaurants,filteredRestaurant, setFilteredRestaurant];
+  return [listofRestaurants, filteredRestaurant, setFilteredRestaurant];
 };
