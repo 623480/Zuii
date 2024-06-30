@@ -12,4 +12,6 @@
 - Dedicated User Profile on Successfull login and signup.
 - Payment Feature.
 - loading more restaurants on scroll
+- middleware for validations..
+  
 
