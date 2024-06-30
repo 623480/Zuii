@@ -5,15 +5,15 @@ import { addItem, removeItem } from "../utils/cartSlice";
 
 export const ItemList = ({ categoryItems }) => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((store) => store.cart.items);
-  const [itemQuantity, setItemQuantity] = useState(0);
+  // const cartItems = useSelector((store) => store.cart.items);
+  // const [itemQuantity, setItemQuantity] = useState(0);
   const handleAddItem = (item) => {
     dispatch(addItem(item));
 
-    if (cartItems && cartItems[item.card.info.id]) {
-      setItemQuantity(cartItems[item.card.info.id].quantity);
-      console.log(itemQuantity);
-    }
+    // if (cartItems && cartItems[item.card.info.id]) {
+    //   setItemQuantity(cartItems[item.card.info.id].quantity);
+    //   console.log(itemQuantity);
+    // }
   };
   const handleRemoveItem = (item) => {
     dispatch(removeItem(item));
@@ -54,9 +54,8 @@ export const ItemList = ({ categoryItems }) => {
               <button
                 className="text-orange-500 text-lg font-bold border-b-2 border-orange-800 bg-white rounded-md px-2 "
                 onClick={() => handleAddItem(item)}
-                isDisabled={itemQuantity === 0 ? false : true}
               >
-                {itemQuantity === 0 ? "Add" : itemQuantity}
+                {/* {itemQuantity === 0 ? "Add" : itemQuantity} */} Add
               </button>
             </div>
           </div>
