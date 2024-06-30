@@ -50,7 +50,7 @@ export const ItemList = ({ categoryItems }) => {
                 alt={item.card.info.id}
               />
             )}
-            <div>
+            <div className="w-6/12 m-auto">
               <button
                 className="text-orange-500 text-lg font-bold border-b-2 border-orange-800 bg-white rounded-md px-2 "
                 onClick={() => handleAddItem(item)}

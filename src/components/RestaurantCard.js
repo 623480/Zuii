@@ -15,7 +15,7 @@ const RestaurantCard = ({ resData }) => {
       <h3 className='p-[5px] text-sm truncate'>{name}</h3>
       <h4 className='p-[5px] text-xs truncate'>{cuisines.join(', ')}</h4>
       <div className='p-[5px] flex justify-between'>
-        <h4 className='text-xs'>{avgRating}</h4>
+        <h4 className='text-xs'>Rating:{avgRating}</h4>
         <h4 className='text-xs truncate'>{costForTwo}</h4>
       </div>
     </div>
