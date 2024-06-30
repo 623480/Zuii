@@ -36,16 +36,18 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </div>
           <div>
-            <button
-              className="mx-4 text-base font-medium hover:text-blue-500"
-              onClick={() => {
-                btnName === "Login"
-                  ? setbtnName("Logout")
-                  : setbtnName("Login");
-              }}
-            >
-              {btnName}
-            </button>
+            <Link to="/login">
+              <button
+                className="mx-4 text-base font-medium hover:text-blue-500"
+                // onClick={() => {
+                //   btnName === "Login"
+                //     ? setbtnName("Logout")
+                //     : setbtnName("Login");
+                // }}
+              >
+                {btnName}
+              </button>
+            </Link>
           </div>
         </div>
       </div>

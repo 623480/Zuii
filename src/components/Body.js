@@ -27,8 +27,9 @@ const Body = () => {
     <div className="mx-6 flex flex-col py-6 min-h-lvh">
       <div className="flex flex-row justify-center">
         <input
-          className="border-2 px-3  border-black rounded-2xl"
+          className="border-2 px-3  border-gray-300 rounded-md"
           type="text"
+          placeholder="search"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
