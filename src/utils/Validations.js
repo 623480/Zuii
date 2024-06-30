@@ -1,3 +1,28 @@
+export const checkLoginValues = (email, password) => {
+  const isEmailValid = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(
+    email
+  );
+  const isPasswordValid =
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password);
 
-export const emailValidation="";
-export const passwordValidation="";
+  if (!isEmailValid) return "Email ID is not valid";
+  if (!isPasswordValid) return "Password is not valid";
+
+  return null;
+};
+
+export const checkSignupValues = (email, password, confirmPassword) => {
+  const isEmailValid = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(
+    email
+  );
+  const isPasswordValid =
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password);
+
+  const isPasswordMatched = password === confirmPassword;
+
+  if (!isEmailValid) return "Email ID is not valid";
+  if (!isPasswordValid) return "Password is not valid";
+  if (!isPasswordMatched) return "Passwords didn't Matched";
+
+  return null;
+};
