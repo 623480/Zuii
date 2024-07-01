@@ -7,24 +7,38 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.totalItems);
-  const [btnName, setbtnName] = useState("Login");
+  const [btnName, setBtnName] = useState("Login");
+  const [dropdown, setDropdown] = useState(true); // Initialize dropdown state correctly
+
+  const handleDropDown = () => {
+    setDropdown(!dropdown); // Toggle dropdown state
+  };
+
   const Status = useOnlineStatus();
+
   return (
-    <div className="flex justify-between shadow-xl">
-      <div className="ml-16">
+    <div className="md:w-auto flex justify-between shadow-md md:shadow-xl">
+      <div className="my-auto ml-10 md:ml-16">
         <img className="w-24 rounded-full" src={ZUIII_LOGO} alt="Logo" />
       </div>
 
-      <div className="mr-16 py-8">
+      {/* Dropdown menu */}
+      <div
+        className={`flex pr-2 absolute bg-white top-16 rounded-md left-[268px] sm:static sm:mr-16 sm:py-8 ${
+          dropdown ? "" : "hidden" 
+        } md:hidden-none`}
+      >
         <div className="flex flex-col sm:flex sm:flex-row">
           <div className="mx-4 text-base font-medium">
-            <p>Status{Status ? "🟢" : "🔴"}</p>
+            <p>Status {Status ? "🟢" : "🔴"}</p>
           </div>
           <div className="mx-4 text-base font-medium hover:text-blue-500">
             <Link to="/">Home</Link>
           </div>
           <div className="mx-4 text-base font-medium hover:text-blue-500">
-            <Link to="/about">About</Link>
+            <Link to="/about">
+              About
+            </Link>
           </div>
           <div className="">
             <Link to="/cart" className="flex w-6/12 m-auto sm:flex sm:mx-4">
@@ -40,9 +54,7 @@ const Header = () => {
               <button
                 className="mx-4 text-base font-medium hover:text-blue-500"
                 // onClick={() => {
-                //   btnName === "Login"
-                //     ? setbtnName("Logout")
-                //     : setbtnName("Login");
+                //   setBtnName(btnName === "Login" ? "Logout" : "Login");
                 // }}
               >
                 {btnName}
@@ -50,6 +62,25 @@ const Header = () => {
             </Link>
           </div>
         </div>
+      </div>
+
+      {/* Hamburger icon for mobile */}
+      <div className="m-auto pl-28 sm:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="size-6 cursor-pointer"
+          onClick={handleDropDown}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
       </div>
     </div>
   );

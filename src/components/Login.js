@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
 import { checkLoginValues, checkSignupValues } from "../utils/Validations";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isLogin, setisLogin] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-
+  const navigate=useNavigate()
   const password = useRef(null);
   const email = useRef(null);
   const confirmPassword = useRef(null);
@@ -21,24 +22,27 @@ const Login = () => {
   };
 
   const handlesubmit = () => {
-    // const email = email.current.value;
-    // const password = password.current.value;
-    // const confirmPassword = confirmPassword.current.value;
+    if (email.current.value === "" || password.current.value === "")
+      setErrorMessage("All Fields Madatory");
+    else {
+      const message = isLogin
+        ? checkLoginValues(email.current.value, password.current.value)
+        : checkSignupValues(
+            email.current.value,
+            password.current.value,
+            confirmPassword.current.value
+          );
 
-    const message = isLogin
-      ? checkLoginValues(email.current.value, password.current.value)
-      : checkSignupValues(
-          email.current.value,
-          password.current.value,
-          confirmPassword.current.value
-        );
-
-    setErrorMessage(message);
-    if (message) return;
+      setErrorMessage(message);
+      if (message) return;
+      else {
+        navigate("/");
+      }
+    }
   };
 
   return (
-    <div className="min-h-lvh flex flex-col w-3/12 m-auto my-4 text-center">
+    <div className="min-h-lvh flex flex-col xl:w-6/12 m-auto my-4 text-center">
       <h1 className="my-4 text-xl font-bold">
         {isLogin ? "Log in" : "Sign up"}
       </h1>
@@ -46,7 +50,7 @@ const Login = () => {
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="flex flex-col my-4"
+        className="flex flex-col my-4 md:w-6/12 m-auto"
       >
         <input
           type="text"
@@ -83,7 +87,7 @@ const Login = () => {
             </span>
           </p>
           <button
-            className={`w-3/12 m-auto bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded-md my-2`}
+            className={`w-3/12 mr-4 xl:m-auto bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded-md my-2`}
             onClick={handlesubmit}
           >
             {isLogin ? "Log in" : "Sign up"}
