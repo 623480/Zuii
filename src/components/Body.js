@@ -11,7 +11,7 @@ const Body = () => {
   const [listofRestaurants, filteredRestaurant, setFilteredRestaurant] =
     useRestaurantsList();
 
-  // console.log(restaurantList?.data.cards[4]?.card?.card?.gridElements?.infoWithStyle ?.restaurants)
+  console.log(listofRestaurants);
 
   // console.log(listofRestaurants);
   const RestaurantCardWithLabel = withPromotedLabel(RestaurantCard);
@@ -21,7 +21,7 @@ const Body = () => {
     return <h1>You are offline please check Internet and Try Again</h1>;
   }
 
-  return listofRestaurants.length === 0 ? (
+  return listofRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="sm:mx-6 sm:w-auto flex flex-col py-6 min-h-lvh ">
@@ -49,7 +49,7 @@ const Body = () => {
         </button>
       </div>
       <div className="mx-10 sm:mx-auto md:mx-30 md:my-10 lg:w-auto xl:m-auto flex flex-wrap">
-        {filteredRestaurant.map((restaurant) => (
+        {filteredRestaurant?.map((restaurant) => (
           <Link
             to={"/restaurants/" + restaurant.info.id}
             key={restaurant.info.id}
