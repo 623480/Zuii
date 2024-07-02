@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.totalItems);
   const [btnName, setBtnName] = useState("Login");
-  const [dropdown, setDropdown] = useState(true); // Initialize dropdown state correctly
+  const [dropdown, setDropdown] = useState(false); // Initialize dropdown state correctly
 
   const handleDropDown = () => {
     setDropdown(!dropdown); // Toggle dropdown state
@@ -24,9 +24,9 @@ const Header = () => {
 
       {/* Dropdown menu */}
       <div
-        className={`flex pr-2 absolute bg-white top-16 rounded-md left-[268px] sm:static sm:mr-16 sm:py-8 ${
-          dropdown ? "" : "hidden" 
-        } md:hidden-none`}
+        className={`flex pr-2 absolute sm:bg-white top-[86px]  rounded-md left-[260px] bg-gray-300 sm:static sm:mr-16 sm:py-8 ${
+          dropdown ? "block" : "hidden"
+        } md:block`}
       >
         <div className="flex flex-col sm:flex sm:flex-row">
           <div className="mx-4 text-base font-medium">
@@ -36,9 +36,7 @@ const Header = () => {
             <Link to="/">Home</Link>
           </div>
           <div className="mx-4 text-base font-medium hover:text-blue-500">
-            <Link to="/about">
-              About
-            </Link>
+            <Link to="/about">About</Link>
           </div>
           <div className="">
             <Link to="/cart" className="flex w-6/12 m-auto sm:flex sm:mx-4">
@@ -51,12 +49,7 @@ const Header = () => {
           </div>
           <div>
             <Link to="/login">
-              <button
-                className="mx-4 text-base font-medium hover:text-blue-500"
-                // onClick={() => {
-                //   setBtnName(btnName === "Login" ? "Logout" : "Login");
-                // }}
-              >
+              <button className="mx-4 text-base font-medium hover:text-blue-500">
                 {btnName}
               </button>
             </Link>
@@ -66,21 +59,39 @@ const Header = () => {
 
       {/* Hamburger icon for mobile */}
       <div className="m-auto pl-28 sm:hidden">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-6 cursor-pointer"
-          onClick={handleDropDown}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
+        {dropdown ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+            onClick={handleDropDown}
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6 cursor-pointer"
+            onClick={handleDropDown}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        )}
       </div>
     </div>
   );

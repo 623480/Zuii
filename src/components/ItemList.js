@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { CDN_URL } from "../utils/constant";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, removeItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 export const ItemList = ({ categoryItems }) => {
   const dispatch = useDispatch();
   // const cartItems = useSelector((store) => store.cart.items);
   // const [itemQuantity, setItemQuantity] = useState(0);
+
   const handleAddItem = (item) => {
     dispatch(addItem(item));
 
@@ -15,9 +16,9 @@ export const ItemList = ({ categoryItems }) => {
     //   console.log(itemQuantity);
     // }
   };
-  const handleRemoveItem = (item) => {
-    dispatch(removeItem(item));
-  };
+  // const handleRemoveItem = (item) => {
+  //   dispatch(removeItem(item));
+  // };
 
   return (
     <div className="">
