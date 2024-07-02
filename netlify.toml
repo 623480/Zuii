@@ -1,4 +1,0 @@
-[build]
-  command = "npm run build"
-  # Add this line to disable treating warnings as errors
-  environment = { CI = "false" }
