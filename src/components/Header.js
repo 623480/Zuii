@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const cartItems = useSelector((store) => store.cart.totalItems);
-  const [btnName, setBtnName] = useState("Login");
+  // const [btnName, setBtnName] = useState("Login");
   const [dropdown, setDropdown] = useState(false); // Initialize dropdown state correctly
 
   const handleDropDown = () => {
@@ -50,7 +50,7 @@ const Header = () => {
           <div>
             <Link to="/login">
               <button className="mx-4 text-base font-medium hover:text-blue-500">
-                {btnName}
+                Login
               </button>
             </Link>
           </div>
