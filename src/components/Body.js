@@ -11,7 +11,6 @@ const Body = () => {
   const [listofRestaurants, filteredRestaurant, setFilteredRestaurant] =
     useRestaurantsList();
 
-  console.log(listofRestaurants);
 
   // console.log(listofRestaurants);
   const RestaurantCardWithLabel = withPromotedLabel(RestaurantCard);

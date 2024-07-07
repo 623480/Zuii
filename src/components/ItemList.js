@@ -20,8 +20,10 @@ export const ItemList = ({ categoryItems }) => {
   //   dispatch(removeItem(item));
   // };
 
+  console.log(categoryItems)
+
   return (
-    <div className="">
+    <div className="w-full">
       {categoryItems.map((item) => (
         <div
           key={item.card.info.id}
@@ -41,7 +43,7 @@ export const ItemList = ({ categoryItems }) => {
               {item.card.info.description}
             </p>
           </div>
-          <div className="w-3/12 pl-4 pr-4 pt-2 pb-5">
+          <div className="w-6/12 sm:w-3/12 sm:pl-4 sm:pr-4 sm:pt-2 sm:pb-5">
             {item.card.info.imageId === undefined ? (
               <div className="w-full rounded-md bg-slate-50"></div>
             ) : (

@@ -6,7 +6,7 @@ const RestaurantCategory = ({ category, showItems, setShowIndex }) => {
     setShowIndex();
   };
   return (
-    <div className='my-4 mx-auto w-6/12 bg-gray-50 shadow-lg p-4'>
+    <div className='mx-4 my-4 sm:mx-auto sm:w-6/12 bg-gray-50 shadow-lg p-4'>
       <div
         className='flex justify-between hover:cursor-pointer'
         onClick={handleClick}>
