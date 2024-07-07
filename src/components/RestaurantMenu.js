@@ -33,7 +33,7 @@ const RestaurantMenu = () => {
 
   return (
     <div className="text-center min-h-lvh my-4">
-      <div className="my-8 py-2">
+      <div className="w-6/12 mx-auto my-8 py-2">
         <h1 className="text-lg font-bold">
           {restaurantInfo?.cards[2]?.card?.card?.info?.name}
         </h1>
