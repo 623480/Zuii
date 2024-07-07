@@ -41,7 +41,9 @@ const Header = () => {
           <div className="">
             <Link to="/cart" className="flex w-6/12 m-auto sm:flex sm:mx-4">
               <TiShoppingCart size={26} className="hover:text-blue-500" />
-              <p className="text-base font-medium">{cartItems}</p>
+              <p className="text-base font-medium hover:text-blue-500">
+                {cartItems}
+              </p>
             </Link>
           </div>
           <div className="mx-4 text-base font-medium hover:text-blue-500">
